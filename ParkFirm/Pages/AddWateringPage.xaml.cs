@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace ParkFirm.Pages
 {
 	/// <summary>
-	/// Interaction logic for WateringPage.xaml
+	/// Interaction logic for AddWateringPage.xaml
 	/// </summary>
-	public partial class WateringPage : Page
+	public partial class AddWateringPage : Page
 	{
-		public WateringPage()
+		public AddWateringPage()
 		{
 			InitializeComponent();
-		}
-
-		private void Watering_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-
 		}
 
 		private void btn_AddWatering_Click(object sender, RoutedEventArgs e)
@@ -37,7 +32,7 @@ namespace ParkFirm.Pages
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 	}
 }

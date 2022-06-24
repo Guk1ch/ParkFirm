@@ -16,21 +16,16 @@ using System.Windows.Shapes;
 namespace ParkFirm.Pages
 {
 	/// <summary>
-	/// Interaction logic for WateringPage.xaml
+	/// Interaction logic for DecInfoPage.xaml
 	/// </summary>
-	public partial class WateringPage : Page
+	public partial class DecInfoPage : Page
 	{
-		public WateringPage()
+		public DecInfoPage()
 		{
 			InitializeComponent();
 		}
 
-		private void Watering_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-
-		}
-
-		private void btn_AddWatering_Click(object sender, RoutedEventArgs e)
+		private void btn_DelDeck_Click(object sender, RoutedEventArgs e)
 		{
 
 		}

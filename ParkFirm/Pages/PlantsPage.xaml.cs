@@ -24,5 +24,20 @@ namespace ParkFirm.Pages
 		{
 			InitializeComponent();
 		}
+
+		private void btn_AddPlant_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new AddPlantPage());
+		}
+
+		private void btn_Back_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.GoBack();
+		}
+
+		private void Plants_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
+		}
 	}
 }

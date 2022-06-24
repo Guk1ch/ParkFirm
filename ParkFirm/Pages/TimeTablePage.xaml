@@ -1,13 +1,13 @@
-﻿<Page x:Class="ParkFirm.Pages.WateringPage"
+﻿<Page x:Class="ParkFirm.Pages.TimeTablePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ParkFirm.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="800"
-      Title="WateringPage">
-    
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TimeTablePage">
+
     <Grid Background="#FF0A290F">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,22 +27,21 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Режим полива" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
+        <TextBlock Text="Расписание" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
 
         <ListView x:Name="Watering" ItemsSource="{Binding watering}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="White" BorderBrush="{x:Null}" SelectionChanged="Watering_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}" Width="200"/>
-                    <GridViewColumn Header="Расписание"  DisplayMemberBinding="{Binding Name}" Width="200"/>
-                    <GridViewColumn Header="Время полива"  DisplayMemberBinding="{Binding Description}" Width="200"/>
-                    <GridViewColumn Header="Количество литров" DisplayMemberBinding="{Binding AddDate}" Width="200"/>
+                    <GridViewColumn Header="№ Зоны"  DisplayMemberBinding="{Binding Name}" Width="200"/>
+                    <GridViewColumn Header="ID служителя"  DisplayMemberBinding="{Binding Description}" Width="200"/>
+                    <GridViewColumn Header="Дата дежурства" DisplayMemberBinding="{Binding AddDate}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button x:Name="btn_AddWatering" Content="Добавить полив" FontSize="25" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4" Width="270" Height="40" Click="btn_AddWatering_Click"/>
+        <Button x:Name="btn_Add" Content="Добавить дежурство" FontSize="25" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4" Width="270" Height="40" Click="btn_Add_Click"/>
         <Button x:Name="btn_Back" Content="Назад"   FontSize="25" Grid.Column="0" Grid.Row="0" Width="100" Height="40" Click="btn_Back_Click" />
 
     </Grid>
-
 </Page>

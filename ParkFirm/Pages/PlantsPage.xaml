@@ -5,10 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ParkFirm.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="PlantsPage">
 
-    <Grid>
-        
+    <Grid Background="#FF0A290F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Растения" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
+
+        <ListView x:Name="Plants" ItemsSource="{Binding plants}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="White" BorderBrush="{x:Null}" SelectionChanged="Plants_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}" Width="160"/>
+                    <GridViewColumn Header="Наименование"  DisplayMemberBinding="{Binding Name}" Width="160"/>
+                    <GridViewColumn Header="Зона"  DisplayMemberBinding="{Binding Description}" Width="160"/>
+                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding AddDate}" Width="160"/>
+                    <GridViewColumn Header="Режим поливки" DisplayMemberBinding="{Binding Unit.Name}" Width="160"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="btn_AddPlant" Content="Добавить растение" FontSize="25" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4" Width="270" Height="40" Click="btn_AddPlant_Click"/>
+        <Button x:Name="btn_Back" Content="Назад"   FontSize="25" Grid.Column="0" Grid.Row="0" Width="100" Height="40" Click="btn_Back_Click" />
+
     </Grid>
 </Page>

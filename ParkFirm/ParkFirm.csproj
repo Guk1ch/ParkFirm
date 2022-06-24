@@ -135,7 +135,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddPlantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddWardenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddWateringPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AuthorisPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DecInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +179,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\TimeTablePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WardenInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\WateringPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,14 +196,23 @@
     <Compile Include="Pages\AddDecorPage.xaml.cs">
       <DependentUpon>AddDecorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddPlantPage.xaml.cs">
+      <DependentUpon>AddPlantPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddWardenPage.xaml.cs">
       <DependentUpon>AddWardenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddWateringPage.xaml.cs">
+      <DependentUpon>AddWateringPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AreaPage.xaml.cs">
       <DependentUpon>AreaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthorisPage.xaml.cs">
       <DependentUpon>AuthorisPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DecInfoPage.xaml.cs">
+      <DependentUpon>DecInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmployeePage.xaml.cs">
       <DependentUpon>EmployeePage.xaml</DependentUpon>
@@ -199,6 +228,12 @@
     </Compile>
     <Compile Include="Pages\StartMenuPage.xaml.cs">
       <DependentUpon>StartMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TimeTablePage.xaml.cs">
+      <DependentUpon>TimeTablePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WardenInfoPage.xaml.cs">
+      <DependentUpon>WardenInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\WateringPage.xaml.cs">
       <DependentUpon>WateringPage.xaml</DependentUpon>

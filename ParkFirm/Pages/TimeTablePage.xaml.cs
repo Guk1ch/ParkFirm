@@ -16,28 +16,23 @@ using System.Windows.Shapes;
 namespace ParkFirm.Pages
 {
 	/// <summary>
-	/// Interaction logic for WateringPage.xaml
+	/// Interaction logic for TimeTablePage.xaml
 	/// </summary>
-	public partial class WateringPage : Page
+	public partial class TimeTablePage : Page
 	{
-		public WateringPage()
+		public TimeTablePage()
 		{
 			InitializeComponent();
 		}
 
-		private void Watering_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-
-		}
-
-		private void btn_AddWatering_Click(object sender, RoutedEventArgs e)
+		private void btn_Add_Click(object sender, RoutedEventArgs e)
 		{
 
 		}
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 	}
 }
