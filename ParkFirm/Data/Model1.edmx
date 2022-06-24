@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ParkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID_Area" />
+          </Key>
+          <Property Name="ID_Area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Decorator">
+          <Key>
+            <PropertyRef Name="ID_Dec" />
+          </Key>
+          <Property Name="ID_Dec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="Education" Type="varchar" MaxLength="50" />
+          <Property Name="Name_Edu_Institution" Type="varchar" MaxLength="50" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Firm">
+          <Key>
+            <PropertyRef Name="ID_Firm" />
+          </Key>
+          <Property Name="ID_Firm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Firm_Employers">
+          <Key>
+            <PropertyRef Name="Firm_Employers" />
+          </Key>
+          <Property Name="Firm_Employers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Firm" Type="int" />
+          <Property Name="ID_Decorator" Type="int" />
+          <Property Name="ID_Wardenn" Type="int" />
+        </EntityType>
+        <EntityType Name="Plant">
+          <Key>
+            <PropertyRef Name="ID_Plant" />
+          </Key>
+          <Property Name="ID_Plant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="ID_Type" Type="int" />
+        </EntityType>
+        <EntityType Name="Plant_Area">
+          <Key>
+            <PropertyRef Name="ID_Plant_Area" />
+          </Key>
+          <Property Name="ID_Plant_Area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Area" Type="int" />
+          <Property Name="ID_Plant" Type="int" />
+          <Property Name="Date_Plant" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Timetable">
+          <Key>
+            <PropertyRef Name="ID_TimeTable" />
+          </Key>
+          <Property Name="ID_TimeTable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Area" Type="int" />
+          <Property Name="ID_Wardenn" Type="int" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Type_Plant">
+          <Key>
+            <PropertyRef Name="ID_Type" />
+          </Key>
+          <Property Name="ID_Type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Wardenn">
+          <Key>
+            <PropertyRef Name="ID_Wardenn" />
+          </Key>
+          <Property Name="ID_Wardenn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Watering">
+          <Key>
+            <PropertyRef Name="ID_Watering" />
+          </Key>
+          <Property Name="ID_Watering" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Timing" Type="varchar" MaxLength="50" />
+          <Property Name="Time_Wash" Type="int" />
+          <Property Name="Standart_Water" Type="int" />
+        </EntityType>
+        <EntityType Name="Watering_Mode">
+          <Key>
+            <PropertyRef Name="ID_Watering_Mode" />
+          </Key>
+          <Property Name="ID_Watering" Type="int" />
+          <Property Name="ID_Plant" Type="int" />
+          <Property Name="ID_Watering_Mode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Firm_Employers_Decorator">
+          <End Role="Decorator" Type="Self.Decorator" Multiplicity="0..1" />
+          <End Role="Firm_Employers" Type="Self.Firm_Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Decorator">
+              <PropertyRef Name="ID_Dec" />
+            </Principal>
+            <Dependent Role="Firm_Employers">
+              <PropertyRef Name="ID_Decorator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firm_Employers_Firm">
+          <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
+          <End Role="Firm_Employers" Type="Self.Firm_Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="ID_Firm" />
+            </Principal>
+            <Dependent Role="Firm_Employers">
+              <PropertyRef Name="ID_Firm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firm_Employers_Wardenn">
+          <End Role="Wardenn" Type="Self.Wardenn" Multiplicity="0..1" />
+          <End Role="Firm_Employers" Type="Self.Firm_Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wardenn">
+              <PropertyRef Name="ID_Wardenn" />
+            </Principal>
+            <Dependent Role="Firm_Employers">
+              <PropertyRef Name="ID_Wardenn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_Area_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Plant_Area" Type="Self.Plant_Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID_Area" />
+            </Principal>
+            <Dependent Role="Plant_Area">
+              <PropertyRef Name="ID_Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_Area_Plant">
+          <End Role="Plant" Type="Self.Plant" Multiplicity="0..1" />
+          <End Role="Plant_Area" Type="Self.Plant_Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plant">
+              <PropertyRef Name="ID_Plant" />
+            </Principal>
+            <Dependent Role="Plant_Area">
+              <PropertyRef Name="ID_Plant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_Type_Plant">
+          <End Role="Type_Plant" Type="Self.Type_Plant" Multiplicity="0..1" />
+          <End Role="Plant" Type="Self.Plant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Plant">
+              <PropertyRef Name="ID_Type" />
+            </Principal>
+            <Dependent Role="Plant">
+              <PropertyRef Name="ID_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timetable_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Timetable" Type="Self.Timetable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID_Area" />
+            </Principal>
+            <Dependent Role="Timetable">
+              <PropertyRef Name="ID_Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timetable_Wardenn">
+          <End Role="Wardenn" Type="Self.Wardenn" Multiplicity="0..1" />
+          <End Role="Timetable" Type="Self.Timetable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wardenn">
+              <PropertyRef Name="ID_Wardenn" />
+            </Principal>
+            <Dependent Role="Timetable">
+              <PropertyRef Name="ID_Wardenn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Watering_Mode_Plant">
+          <End Role="Plant" Type="Self.Plant" Multiplicity="0..1" />
+          <End Role="Watering_Mode" Type="Self.Watering_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plant">
+              <PropertyRef Name="ID_Plant" />
+            </Principal>
+            <Dependent Role="Watering_Mode">
+              <PropertyRef Name="ID_Plant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Watering_Mode_Watering">
+          <End Role="Watering" Type="Self.Watering" Multiplicity="0..1" />
+          <End Role="Watering_Mode" Type="Self.Watering_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Watering">
+              <PropertyRef Name="ID_Watering" />
+            </Principal>
+            <Dependent Role="Watering_Mode">
+              <PropertyRef Name="ID_Watering" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParkModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Decorator" EntityType="Self.Decorator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Firm_Employers" EntityType="Self.Firm_Employers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plant" EntityType="Self.Plant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plant_Area" EntityType="Self.Plant_Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timetable" EntityType="Self.Timetable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_Plant" EntityType="Self.Type_Plant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wardenn" EntityType="Self.Wardenn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Watering" EntityType="Self.Watering" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Watering_Mode" EntityType="Self.Watering_Mode" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Firm_Employers_Decorator" Association="Self.FK_Firm_Employers_Decorator">
+            <End Role="Decorator" EntitySet="Decorator" />
+            <End Role="Firm_Employers" EntitySet="Firm_Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firm_Employers_Firm" Association="Self.FK_Firm_Employers_Firm">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="Firm_Employers" EntitySet="Firm_Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firm_Employers_Wardenn" Association="Self.FK_Firm_Employers_Wardenn">
+            <End Role="Wardenn" EntitySet="Wardenn" />
+            <End Role="Firm_Employers" EntitySet="Firm_Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_Area_Area" Association="Self.FK_Plant_Area_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Plant_Area" EntitySet="Plant_Area" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_Area_Plant" Association="Self.FK_Plant_Area_Plant">
+            <End Role="Plant" EntitySet="Plant" />
+            <End Role="Plant_Area" EntitySet="Plant_Area" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_Type_Plant" Association="Self.FK_Plant_Type_Plant">
+            <End Role="Type_Plant" EntitySet="Type_Plant" />
+            <End Role="Plant" EntitySet="Plant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timetable_Area" Association="Self.FK_Timetable_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Timetable" EntitySet="Timetable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timetable_Wardenn" Association="Self.FK_Timetable_Wardenn">
+            <End Role="Wardenn" EntitySet="Wardenn" />
+            <End Role="Timetable" EntitySet="Timetable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Watering_Mode_Plant" Association="Self.FK_Watering_Mode_Plant">
+            <End Role="Plant" EntitySet="Plant" />
+            <End Role="Watering_Mode" EntitySet="Watering_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Watering_Mode_Watering" Association="Self.FK_Watering_Mode_Watering">
+            <End Role="Watering" EntitySet="Watering" />
+            <End Role="Watering_Mode" EntitySet="Watering_Mode" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ParkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID_Area" />
+          </Key>
+          <Property Name="ID_Area" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Plant_Area" Relationship="Self.FK_Plant_Area_Area" FromRole="Area" ToRole="Plant_Area" />
+          <NavigationProperty Name="Timetable" Relationship="Self.FK_Timetable_Area" FromRole="Area" ToRole="Timetable" />
+        </EntityType>
+        <EntityType Name="Decorator">
+          <Key>
+            <PropertyRef Name="ID_Dec" />
+          </Key>
+          <Property Name="ID_Dec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Edu_Institution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Firm_Employers" Relationship="Self.FK_Firm_Employers_Decorator" FromRole="Decorator" ToRole="Firm_Employers" />
+        </EntityType>
+        <EntityType Name="Firm">
+          <Key>
+            <PropertyRef Name="ID_Firm" />
+          </Key>
+          <Property Name="ID_Firm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Firm_Employers" Relationship="Self.FK_Firm_Employers_Firm" FromRole="Firm" ToRole="Firm_Employers" />
+        </EntityType>
+        <EntityType Name="Firm_Employers">
+          <Key>
+            <PropertyRef Name="Firm_Employers1" />
+          </Key>
+          <Property Name="Firm_Employers1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Firm" Type="Int32" />
+          <Property Name="ID_Decorator" Type="Int32" />
+          <Property Name="ID_Wardenn" Type="Int32" />
+          <NavigationProperty Name="Decorator" Relationship="Self.FK_Firm_Employers_Decorator" FromRole="Firm_Employers" ToRole="Decorator" />
+          <NavigationProperty Name="Firm" Relationship="Self.FK_Firm_Employers_Firm" FromRole="Firm_Employers" ToRole="Firm" />
+          <NavigationProperty Name="Wardenn" Relationship="Self.FK_Firm_Employers_Wardenn" FromRole="Firm_Employers" ToRole="Wardenn" />
+        </EntityType>
+        <EntityType Name="Plant">
+          <Key>
+            <PropertyRef Name="ID_Plant" />
+          </Key>
+          <Property Name="ID_Plant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="ID_Type" Type="Int32" />
+          <NavigationProperty Name="Plant_Area" Relationship="Self.FK_Plant_Area_Plant" FromRole="Plant" ToRole="Plant_Area" />
+          <NavigationProperty Name="Type_Plant" Relationship="Self.FK_Plant_Type_Plant" FromRole="Plant" ToRole="Type_Plant" />
+          <NavigationProperty Name="Watering_Mode" Relationship="Self.FK_Watering_Mode_Plant" FromRole="Plant" ToRole="Watering_Mode" />
+        </EntityType>
+        <EntityType Name="Plant_Area">
+          <Key>
+            <PropertyRef Name="ID_Plant_Area" />
+          </Key>
+          <Property Name="ID_Plant_Area" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Area" Type="Int32" />
+          <Property Name="ID_Plant" Type="Int32" />
+          <Property Name="Date_Plant" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_Plant_Area_Area" FromRole="Plant_Area" ToRole="Area" />
+          <NavigationProperty Name="Plant" Relationship="Self.FK_Plant_Area_Plant" FromRole="Plant_Area" ToRole="Plant" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Timetable">
+          <Key>
+            <PropertyRef Name="ID_TimeTable" />
+          </Key>
+          <Property Name="ID_TimeTable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Area" Type="Int32" />
+          <Property Name="ID_Wardenn" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_Timetable_Area" FromRole="Timetable" ToRole="Area" />
+          <NavigationProperty Name="Wardenn" Relationship="Self.FK_Timetable_Wardenn" FromRole="Timetable" ToRole="Wardenn" />
+        </EntityType>
+        <EntityType Name="Type_Plant">
+          <Key>
+            <PropertyRef Name="ID_Type" />
+          </Key>
+          <Property Name="ID_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Plant" Relationship="Self.FK_Plant_Type_Plant" FromRole="Type_Plant" ToRole="Plant" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Wardenn">
+          <Key>
+            <PropertyRef Name="ID_Wardenn" />
+          </Key>
+          <Property Name="ID_Wardenn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Firm_Employers" Relationship="Self.FK_Firm_Employers_Wardenn" FromRole="Wardenn" ToRole="Firm_Employers" />
+          <NavigationProperty Name="Timetable" Relationship="Self.FK_Timetable_Wardenn" FromRole="Wardenn" ToRole="Timetable" />
+        </EntityType>
+        <EntityType Name="Watering">
+          <Key>
+            <PropertyRef Name="ID_Watering" />
+          </Key>
+          <Property Name="ID_Watering" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Timing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time_Wash" Type="Int32" />
+          <Property Name="Standart_Water" Type="Int32" />
+          <NavigationProperty Name="Watering_Mode" Relationship="Self.FK_Watering_Mode_Watering" FromRole="Watering" ToRole="Watering_Mode" />
+        </EntityType>
+        <EntityType Name="Watering_Mode">
+          <Key>
+            <PropertyRef Name="ID_Watering_Mode" />
+          </Key>
+          <Property Name="ID_Watering" Type="Int32" />
+          <Property Name="ID_Plant" Type="Int32" />
+          <Property Name="ID_Watering_Mode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Plant" Relationship="Self.FK_Watering_Mode_Plant" FromRole="Watering_Mode" ToRole="Plant" />
+          <NavigationProperty Name="Watering" Relationship="Self.FK_Watering_Mode_Watering" FromRole="Watering_Mode" ToRole="Watering" />
+        </EntityType>
+        <Association Name="FK_Plant_Area_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Plant_Area" Type="Self.Plant_Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID_Area" />
+            </Principal>
+            <Dependent Role="Plant_Area">
+              <PropertyRef Name="ID_Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timetable_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Timetable" Type="Self.Timetable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID_Area" />
+            </Principal>
+            <Dependent Role="Timetable">
+              <PropertyRef Name="ID_Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firm_Employers_Decorator">
+          <End Role="Decorator" Type="Self.Decorator" Multiplicity="0..1" />
+          <End Role="Firm_Employers" Type="Self.Firm_Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Decorator">
+              <PropertyRef Name="ID_Dec" />
+            </Principal>
+            <Dependent Role="Firm_Employers">
+              <PropertyRef Name="ID_Decorator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firm_Employers_Firm">
+          <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
+          <End Role="Firm_Employers" Type="Self.Firm_Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="ID_Firm" />
+            </Principal>
+            <Dependent Role="Firm_Employers">
+              <PropertyRef Name="ID_Firm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firm_Employers_Wardenn">
+          <End Role="Wardenn" Type="Self.Wardenn" Multiplicity="0..1" />
+          <End Role="Firm_Employers" Type="Self.Firm_Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wardenn">
+              <PropertyRef Name="ID_Wardenn" />
+            </Principal>
+            <Dependent Role="Firm_Employers">
+              <PropertyRef Name="ID_Wardenn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_Area_Plant">
+          <End Role="Plant" Type="Self.Plant" Multiplicity="0..1" />
+          <End Role="Plant_Area" Type="Self.Plant_Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plant">
+              <PropertyRef Name="ID_Plant" />
+            </Principal>
+            <Dependent Role="Plant_Area">
+              <PropertyRef Name="ID_Plant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_Type_Plant">
+          <End Role="Type_Plant" Type="Self.Type_Plant" Multiplicity="0..1" />
+          <End Role="Plant" Type="Self.Plant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Plant">
+              <PropertyRef Name="ID_Type" />
+            </Principal>
+            <Dependent Role="Plant">
+              <PropertyRef Name="ID_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Watering_Mode_Plant">
+          <End Role="Plant" Type="Self.Plant" Multiplicity="0..1" />
+          <End Role="Watering_Mode" Type="Self.Watering_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plant">
+              <PropertyRef Name="ID_Plant" />
+            </Principal>
+            <Dependent Role="Watering_Mode">
+              <PropertyRef Name="ID_Plant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timetable_Wardenn">
+          <End Role="Wardenn" Type="Self.Wardenn" Multiplicity="0..1" />
+          <End Role="Timetable" Type="Self.Timetable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wardenn">
+              <PropertyRef Name="ID_Wardenn" />
+            </Principal>
+            <Dependent Role="Timetable">
+              <PropertyRef Name="ID_Wardenn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Watering_Mode_Watering">
+          <End Role="Watering" Type="Self.Watering" Multiplicity="0..1" />
+          <End Role="Watering_Mode" Type="Self.Watering_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Watering">
+              <PropertyRef Name="ID_Watering" />
+            </Principal>
+            <Dependent Role="Watering_Mode">
+              <PropertyRef Name="ID_Watering" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParkEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Area" EntityType="Self.Area" />
+          <EntitySet Name="Decorator" EntityType="Self.Decorator" />
+          <EntitySet Name="Firm" EntityType="Self.Firm" />
+          <EntitySet Name="Firm_Employers" EntityType="Self.Firm_Employers" />
+          <EntitySet Name="Plant" EntityType="Self.Plant" />
+          <EntitySet Name="Plant_Area" EntityType="Self.Plant_Area" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Timetable" EntityType="Self.Timetable" />
+          <EntitySet Name="Type_Plant" EntityType="Self.Type_Plant" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Wardenn" EntityType="Self.Wardenn" />
+          <EntitySet Name="Watering" EntityType="Self.Watering" />
+          <EntitySet Name="Watering_Mode" EntityType="Self.Watering_Mode" />
+          <AssociationSet Name="FK_Plant_Area_Area" Association="Self.FK_Plant_Area_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Plant_Area" EntitySet="Plant_Area" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timetable_Area" Association="Self.FK_Timetable_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Timetable" EntitySet="Timetable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firm_Employers_Decorator" Association="Self.FK_Firm_Employers_Decorator">
+            <End Role="Decorator" EntitySet="Decorator" />
+            <End Role="Firm_Employers" EntitySet="Firm_Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firm_Employers_Firm" Association="Self.FK_Firm_Employers_Firm">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="Firm_Employers" EntitySet="Firm_Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firm_Employers_Wardenn" Association="Self.FK_Firm_Employers_Wardenn">
+            <End Role="Wardenn" EntitySet="Wardenn" />
+            <End Role="Firm_Employers" EntitySet="Firm_Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_Area_Plant" Association="Self.FK_Plant_Area_Plant">
+            <End Role="Plant" EntitySet="Plant" />
+            <End Role="Plant_Area" EntitySet="Plant_Area" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_Type_Plant" Association="Self.FK_Plant_Type_Plant">
+            <End Role="Type_Plant" EntitySet="Type_Plant" />
+            <End Role="Plant" EntitySet="Plant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Watering_Mode_Plant" Association="Self.FK_Watering_Mode_Plant">
+            <End Role="Plant" EntitySet="Plant" />
+            <End Role="Watering_Mode" EntitySet="Watering_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timetable_Wardenn" Association="Self.FK_Timetable_Wardenn">
+            <End Role="Wardenn" EntitySet="Wardenn" />
+            <End Role="Timetable" EntitySet="Timetable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Watering_Mode_Watering" Association="Self.FK_Watering_Mode_Watering">
+            <End Role="Watering" EntitySet="Watering" />
+            <End Role="Watering_Mode" EntitySet="Watering_Mode" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ParkModelStoreContainer" CdmEntityContainer="ParkEntities">
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="ParkModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Decorator">
+            <EntityTypeMapping TypeName="ParkModel.Decorator">
+              <MappingFragment StoreEntitySet="Decorator">
+                <ScalarProperty Name="ID_Dec" ColumnName="ID_Dec" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Name_Edu_Institution" ColumnName="Name_Edu_Institution" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firm">
+            <EntityTypeMapping TypeName="ParkModel.Firm">
+              <MappingFragment StoreEntitySet="Firm">
+                <ScalarProperty Name="ID_Firm" ColumnName="ID_Firm" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firm_Employers">
+            <EntityTypeMapping TypeName="ParkModel.Firm_Employers">
+              <MappingFragment StoreEntitySet="Firm_Employers">
+                <ScalarProperty Name="Firm_Employers1" ColumnName="Firm_Employers" />
+                <ScalarProperty Name="ID_Firm" ColumnName="ID_Firm" />
+                <ScalarProperty Name="ID_Decorator" ColumnName="ID_Decorator" />
+                <ScalarProperty Name="ID_Wardenn" ColumnName="ID_Wardenn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plant">
+            <EntityTypeMapping TypeName="ParkModel.Plant">
+              <MappingFragment StoreEntitySet="Plant">
+                <ScalarProperty Name="ID_Plant" ColumnName="ID_Plant" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plant_Area">
+            <EntityTypeMapping TypeName="ParkModel.Plant_Area">
+              <MappingFragment StoreEntitySet="Plant_Area">
+                <ScalarProperty Name="ID_Plant_Area" ColumnName="ID_Plant_Area" />
+                <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+                <ScalarProperty Name="ID_Plant" ColumnName="ID_Plant" />
+                <ScalarProperty Name="Date_Plant" ColumnName="Date_Plant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ParkModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timetable">
+            <EntityTypeMapping TypeName="ParkModel.Timetable">
+              <MappingFragment StoreEntitySet="Timetable">
+                <ScalarProperty Name="ID_TimeTable" ColumnName="ID_TimeTable" />
+                <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+                <ScalarProperty Name="ID_Wardenn" ColumnName="ID_Wardenn" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_Plant">
+            <EntityTypeMapping TypeName="ParkModel.Type_Plant">
+              <MappingFragment StoreEntitySet="Type_Plant">
+                <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="ParkModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wardenn">
+            <EntityTypeMapping TypeName="ParkModel.Wardenn">
+              <MappingFragment StoreEntitySet="Wardenn">
+                <ScalarProperty Name="ID_Wardenn" ColumnName="ID_Wardenn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Watering">
+            <EntityTypeMapping TypeName="ParkModel.Watering">
+              <MappingFragment StoreEntitySet="Watering">
+                <ScalarProperty Name="ID_Watering" ColumnName="ID_Watering" />
+                <ScalarProperty Name="Timing" ColumnName="Timing" />
+                <ScalarProperty Name="Time_Wash" ColumnName="Time_Wash" />
+                <ScalarProperty Name="Standart_Water" ColumnName="Standart_Water" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Watering_Mode">
+            <EntityTypeMapping TypeName="ParkModel.Watering_Mode">
+              <MappingFragment StoreEntitySet="Watering_Mode">
+                <ScalarProperty Name="ID_Watering" ColumnName="ID_Watering" />
+                <ScalarProperty Name="ID_Plant" ColumnName="ID_Plant" />
+                <ScalarProperty Name="ID_Watering_Mode" ColumnName="ID_Watering_Mode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

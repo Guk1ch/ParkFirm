@@ -24,5 +24,15 @@ namespace ParkFirm.Pages
 		{
 			InitializeComponent();
 		}
+
+		private void btn_Back_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btn_AddWarden_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

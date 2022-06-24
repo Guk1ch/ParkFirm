@@ -27,7 +27,7 @@ namespace ParkFirm.Pages
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 	}
 }
