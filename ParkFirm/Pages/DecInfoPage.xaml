@@ -42,7 +42,7 @@
         <TextBlock x:Name="tb_lastname" FontSize="36" Grid.Column="2" Grid.Row="3"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock x:Name="tb_phone" FontSize="36" Grid.Column="2" Grid.Row="4"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock x:Name="tb_adress" FontSize="36" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Rockwell Condensed" />
-        <TextBlock x:Name="tb_name_edu" FontSize="36" Grid.Column="2" Grid.Row="6" Grid.RowSpan="2"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Rockwell Condensed" />
+        <TextBlock x:Name="tb_name_edu" FontSize="36" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" Grid.RowSpan="2"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock x:Name="tb_category" FontSize="36" Grid.Column="2" Grid.Row="8"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Rockwell Condensed" />
 
 

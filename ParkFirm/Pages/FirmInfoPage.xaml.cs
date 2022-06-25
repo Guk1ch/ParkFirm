@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
@@ -20,9 +22,15 @@ namespace ParkFirm.Pages
 	/// </summary>
 	public partial class FirmInfoPage : Page
 	{
+		public static Firm n { get; set; }
 		public FirmInfoPage()
 		{
 			InitializeComponent();
+			var n = BD_connection.connection.Firm.FirstOrDefault();
+			tb_Name.Text = n.Title;
+			tb_Adress.Text = n.Adress;
+			this.DataContext = this;
+			
 		}
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
@@ -20,19 +22,26 @@ namespace ParkFirm.Pages
 	/// </summary>
 	public partial class AreaPage : Page
 	{
+		public static ObservableCollection<Area> areas { get; set; }
 		public AreaPage()
 		{
 			InitializeComponent();
+			areas = new ObservableCollection<Area>(BD_connection.connection.Area.ToList());
+
+			var o = new Area();
+			this.DataContext = this;
 		}
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 
 		private void btn_Add_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.Navigate(new AddAreaPage());
 		}
+
+
 	}
 }

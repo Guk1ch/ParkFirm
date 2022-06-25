@@ -12,25 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
 	/// <summary>
-	/// Interaction logic for AddDecorPage.xaml
+	/// Interaction logic for AddAreaPage.xaml
 	/// </summary>
-	public partial class AddDecorPage : Page
+	public partial class AddAreaPage : Page
 	{
-		public AddDecorPage()
+		public AddAreaPage()
 		{
 			InitializeComponent();
 		}
 
-		private void btn_Back_Click(object sender, RoutedEventArgs e)
+		private void btn_AddArea_Click(object sender, RoutedEventArgs e)
 		{
 			NavigationService.GoBack();
 		}
 
-		private void btn_AddDeck_Click(object sender, RoutedEventArgs e)
+		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
 			NavigationService.GoBack();
 		}

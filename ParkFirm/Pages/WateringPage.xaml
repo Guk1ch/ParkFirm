@@ -29,13 +29,13 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Режим полива" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
 
-        <ListView x:Name="Watering" ItemsSource="{Binding watering}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="White" BorderBrush="{x:Null}" SelectionChanged="Watering_SelectionChanged">
+        <ListView x:Name="Watering" ItemsSource="{Binding waterings}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="Black" BorderBrush="{x:Null}" SelectionChanged="Watering_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}" Width="200"/>
-                    <GridViewColumn Header="Расписание"  DisplayMemberBinding="{Binding Name}" Width="200"/>
-                    <GridViewColumn Header="Время полива"  DisplayMemberBinding="{Binding Description}" Width="200"/>
-                    <GridViewColumn Header="Количество литров" DisplayMemberBinding="{Binding AddDate}" Width="200"/>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding ID_Watering}" Width="200"/>
+                    <GridViewColumn Header="Расписание"  DisplayMemberBinding="{Binding Timing}" Width="200"/>
+                    <GridViewColumn Header="Время полива"  DisplayMemberBinding="{Binding Time_Wash}" Width="200"/>
+                    <GridViewColumn Header="Количество литров" DisplayMemberBinding="{Binding Standart_Water}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>

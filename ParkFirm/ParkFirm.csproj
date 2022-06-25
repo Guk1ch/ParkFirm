@@ -131,11 +131,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddAreaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddDecorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddPlantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddTimetablePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,11 +201,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddAreaPage.xaml.cs">
+      <DependentUpon>AddAreaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddDecorPage.xaml.cs">
       <DependentUpon>AddDecorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddPlantPage.xaml.cs">
       <DependentUpon>AddPlantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddTimetablePage.xaml.cs">
+      <DependentUpon>AddTimetablePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddWardenPage.xaml.cs">
       <DependentUpon>AddWardenPage.xaml</DependentUpon>
@@ -286,9 +300,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="img\Watering2.png" />
+    <Resource Include="img\Watering.png" />
     <Resource Include="img\Info.png" />
     <Resource Include="img\Area.png" />
-    <Content Include="img\Water.png" />
+    <Content Include="img\Woter.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Empl.png" />

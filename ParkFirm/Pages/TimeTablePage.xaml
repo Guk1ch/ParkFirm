@@ -29,13 +29,13 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Расписание" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
 
-        <ListView x:Name="Watering" ItemsSource="{Binding watering}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="White" BorderBrush="{x:Null}" SelectionChanged="Watering_SelectionChanged">
+        <ListView x:Name="time" ItemsSource="{Binding times}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="Black" BorderBrush="{x:Null}" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}" Width="200"/>
-                    <GridViewColumn Header="№ Зоны"  DisplayMemberBinding="{Binding Name}" Width="200"/>
-                    <GridViewColumn Header="ID служителя"  DisplayMemberBinding="{Binding Description}" Width="200"/>
-                    <GridViewColumn Header="Дата дежурства" DisplayMemberBinding="{Binding AddDate}" Width="200"/>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding ID_TimeTable}" Width="200"/>
+                    <GridViewColumn Header="№ Зоны"  DisplayMemberBinding="{Binding ID_Area}" Width="200"/>
+                    <GridViewColumn Header="ID служителя"  DisplayMemberBinding="{Binding ID_Wardenn}" Width="200"/>
+                    <GridViewColumn Header="Дата дежурства" DisplayMemberBinding="{Binding Date}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>

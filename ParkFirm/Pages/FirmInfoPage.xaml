@@ -27,7 +27,7 @@
         <TextBlock Text="Название" FontSize="36" FontWeight="Bold"  Grid.ColumnSpan="2" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock x:Name="tb_Name" FontSize="36"   Grid.ColumnSpan="2" Grid.Row="2"   HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock Text="Адрес" FontSize="36" FontWeight="Bold"  Grid.ColumnSpan="2"  Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
-        <TextBlock x:Name="tb_Adress" FontSize="36"   Grid.ColumnSpan="4"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
+        <TextBlock x:Name="tb_Adress" FontSize="36"   Grid.ColumnSpan="4"  Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock Text="Контакты" FontSize="36" FontWeight="Bold"  Grid.ColumnSpan="2"  Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
         <TextBlock Text="8(951)987-32-45" FontSize="36" FontWeight="Bold"  Grid.ColumnSpan="2"  Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
 

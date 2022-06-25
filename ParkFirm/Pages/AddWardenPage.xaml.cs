@@ -27,12 +27,12 @@ namespace ParkFirm.Pages
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 
 		private void btn_AddWarden_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 	}
 }

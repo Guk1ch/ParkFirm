@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
@@ -20,9 +22,20 @@ namespace ParkFirm.Pages
 	/// </summary>
 	public partial class PlantsPage : Page
 	{
+		public static ObservableCollection<Plant> plants { get; set; }
+		public static ObservableCollection<Type_Plant> type_s { get; set; }
+		public static ObservableCollection<Watering_Mode> watering_s  { get; set; }
+		public static ObservableCollection<Plant_Area> plant_Areas { get; set; }
+
 		public PlantsPage()
 		{
 			InitializeComponent();
+			plants = new ObservableCollection<Plant>(BD_connection.connection.Plant.ToList());
+			plant_Areas = new ObservableCollection<Plant_Area>(BD_connection.connection.Plant_Area.ToList());
+			type_s = new ObservableCollection<Type_Plant>(BD_connection.connection.Type_Plant.ToList());
+			watering_s = new ObservableCollection<Watering_Mode>(BD_connection.connection.Watering_Mode.ToList());
+
+			this.DataContext = this;
 		}
 
 		private void btn_AddPlant_Click(object sender, RoutedEventArgs e)

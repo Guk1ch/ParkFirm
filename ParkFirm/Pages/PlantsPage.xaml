@@ -29,14 +29,20 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Растения" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
 
-        <ListView x:Name="Plants" ItemsSource="{Binding plants}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="8"  Foreground="White" BorderBrush="{x:Null}" SelectionChanged="Plants_SelectionChanged">
+        <ListView x:Name="Plants" ItemsSource="{Binding plant_Areas}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="8" FontWeight="Bold" Foreground="Black" BorderBrush="{x:Null}" SelectionChanged="Plants_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}" Width="160"/>
-                    <GridViewColumn Header="Наименование"  DisplayMemberBinding="{Binding Name}" Width="160"/>
-                    <GridViewColumn Header="Зона"  DisplayMemberBinding="{Binding Description}" Width="160"/>
-                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding AddDate}" Width="160"/>
-                    <GridViewColumn Header="Режим поливки" DisplayMemberBinding="{Binding Unit.Name}" Width="160"/>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Plant.ID_Plant}" Width="160"/>
+                    <GridViewColumn Header="Наименование"  DisplayMemberBinding="{Binding Plant.Type_Plant.Name}" Width="160"/>
+                    <GridViewColumn Header="Зона"  DisplayMemberBinding="{Binding ID_Area}" Width="160"/>
+                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Plant.Age}" Width="160"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="Water" ItemsSource="{Binding watering_s}" Grid.Column="4" Margin="-2,0,0,0" Grid.Row="1" Grid.RowSpan="8" FontWeight="Bold" Foreground="Black" BorderBrush="{x:Null}" SelectionChanged="Plants_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Режим поливки" DisplayMemberBinding="{Binding ID_Watering}" Width="160"/>
                 </GridView>
             </ListView.View>
         </ListView>

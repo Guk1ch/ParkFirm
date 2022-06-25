@@ -82,7 +82,7 @@
             <TextBlock Text="Растения" FontSize="25" FontWeight="Bold"  Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed"/>
         </StackPanel>
         <StackPanel Grid.Row="6" Grid.RowSpan="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="10">
-            <Image x:Name="Water"  Source="/img/Water.png" Height="200" Width="300" Grid.Column="0" Grid.Row="1" MouseDown="Water_MouseDown">
+            <Image x:Name="Water"  Source="/img/Watering2.png" Height="200" Width="300" Grid.Column="0" Grid.Row="1" MouseDown="Water_MouseDown">
                 <Image.Style>
                     <Style TargetType="{x:Type Image}">
                         <Style.Triggers>

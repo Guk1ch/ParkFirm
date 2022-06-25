@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
@@ -20,9 +22,13 @@ namespace ParkFirm.Pages
 	/// </summary>
 	public partial class WateringPage : Page
 	{
+		public static ObservableCollection<Watering> waterings { get; set; }
 		public WateringPage()
 		{
 			InitializeComponent();
+			waterings = new ObservableCollection<Watering>(BD_connection.connection.Watering.ToList());
+			var w = new Watering();
+			this.DataContext = this;
 		}
 
 		private void Watering_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -32,12 +38,12 @@ namespace ParkFirm.Pages
 
 		private void btn_AddWatering_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.Navigate(new AddWateringPage());
 		}
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 	}
 }

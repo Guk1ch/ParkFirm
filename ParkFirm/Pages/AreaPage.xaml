@@ -29,7 +29,32 @@
         </Grid.RowDefinitions>
         
         <TextBlock Text="Зоны" FontSize="56" FontWeight="Bold"  Grid.ColumnSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontFamily="Rockwell Condensed" />
-        
+        <ListView x:Name="fil" ItemsSource="{Binding areas}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="9" Background="#FF0A290F">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+
+
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}|{1}">
+                                    <Binding Path="Area.Name"/>
+                                    <Binding Path="Name"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+
+                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontFamily="Rockwell Condensed"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
         <Button x:Name="btn_Back" Content="Назад"   FontSize="25" Grid.Column="0" Grid.Row="0" Width="100" Height="40" Click="btn_Back_Click" />
         <Button x:Name="btn_Add" Content="Добавить"   FontSize="25" Grid.Column="3" Grid.Row="0" Width="120" Height="40" Click="btn_Add_Click" />
 

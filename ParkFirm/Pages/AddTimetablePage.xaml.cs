@@ -16,21 +16,21 @@ using System.Windows.Shapes;
 namespace ParkFirm.Pages
 {
 	/// <summary>
-	/// Interaction logic for AddDecorPage.xaml
+	/// Interaction logic for AddTimetablePage.xaml
 	/// </summary>
-	public partial class AddDecorPage : Page
+	public partial class AddTimetablePage : Page
 	{
-		public AddDecorPage()
+		public AddTimetablePage()
 		{
 			InitializeComponent();
 		}
 
-		private void btn_Back_Click(object sender, RoutedEventArgs e)
+		private void btn_AddTime_Click(object sender, RoutedEventArgs e)
 		{
 			NavigationService.GoBack();
 		}
 
-		private void btn_AddDeck_Click(object sender, RoutedEventArgs e)
+		private void btn_Back_Click(object sender, RoutedEventArgs e)
 		{
 			NavigationService.GoBack();
 		}

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
@@ -20,14 +22,23 @@ namespace ParkFirm.Pages
 	/// </summary>
 	public partial class WardenInfoPage : Page
 	{
-		public WardenInfoPage()
+		public static ObservableCollection<Wardenn> wardens { get; set; }
+		public WardenInfoPage(Wardenn n)
 		{
 			InitializeComponent();
+			wardens = new ObservableCollection<Wardenn>(BD_connection.connection.Wardenn.ToList());
+			tb_name.Text = n.Name;
+			tb_surname.Text = n.Surname;
+			tb_lastname.Text = n.Lastname;
+			tb_phone.Text = n.Phone;
+			tb_adress.Text = n.Adress;
+			var w = new Wardenn();
+			this.DataContext = this;
 		}
 
 		private void btn_DelWarden_Click(object sender, RoutedEventArgs e)
 		{
-
+			NavigationService.GoBack();
 		}
 
 		private void btn_Back_Click(object sender, RoutedEventArgs e)

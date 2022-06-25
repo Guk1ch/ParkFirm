@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ParkFirm.Data;
 
 namespace ParkFirm.Pages
 {
@@ -32,7 +34,16 @@ namespace ParkFirm.Pages
 
 		private void BTN_Reg_Click(object sender, RoutedEventArgs e)
 		{
-
+			var a = new User();
+			a.Name = txt_Name.Text;
+			a.Surname = txt_Surname.Text;
+			a.Lastname = txt_Lastname.Text;
+			a.Login = txt_login.Text;
+			a.Password = txt_password.Password;
+			BD_connection.connection.User.Add(a);
+			BD_connection.connection.SaveChanges();
+			MessageBox.Show("All OK");
+			NavigationService.GoBack();
 		}
 	}
 }
